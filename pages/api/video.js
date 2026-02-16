@@ -18,10 +18,9 @@ export default async function handler(req, res) {
       const createResponse = await fetch(`${klingEndpoint}/videos/text2video`, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          'X-API-Key': process.env.KLING_ACCESS_KEY,
-          'X-API-Secret': process.env.KLING_SECRET_KEY
-        },
+  'Content-Type': 'application/json',
+  'Authorization': `Bearer ${process.env.KLING_ACCESS_KEY}:${process.env.KLING_SECRET_KEY}`
+},
         body: JSON.stringify({
           model: "kling-v1",
           prompt: text,
